@@ -50,7 +50,7 @@
   <body>
     <div id="loadingScreen">
       <!-- Replace 'path/to/your/image.png' with the actual path to your image -->
-      <img src="Screenshot 2024-09-20 032129.png" alt="Loading..." />
+      <img src="SIH_Models\Screenshot 2024-09-20 032129.png" alt="Loading..." />
       <div id="loadingBarContainer">
         <div id="loadingBar"></div>
       </div>
@@ -177,7 +177,7 @@
 
       async function loadIslandModel() {
         const loader = new GLTFLoader();
-        loader.setPath('');
+        loader.setPath('SIH_Models/');
 
         try {
           const gltf = await new Promise((resolve, reject) => {
@@ -206,11 +206,11 @@
 
       async function loadCharacterModel() {
         const loader = new GLTFLoader();
-        loader.setPath('');
+        loader.setPath('models/gltf/');
 
         try {
           const gltf = await new Promise((resolve, reject) => {
-            loader.load('remy.glb', resolve, undefined, reject); //Soldier
+            loader.load('Soldier.glb', resolve, undefined, reject); //Soldier
           });
 
           character = gltf.scene;
@@ -380,7 +380,7 @@
             idleAction.play();
           }
           
-          /*if (isThirdPerson) {  FOR SPACE CHARACTER
+          if (isThirdPerson) {  
             const thirdPersonPosition = new THREE.Vector3(0, 1.7, 4).applyMatrix4(character.matrixWorld);
             camera.position.lerp(thirdPersonPosition, 0.1);
             camera.lookAt(character.position.x, character.position.y + (c_size * 1.4), character.position.z);
@@ -388,9 +388,9 @@
             const firstPersonPosition = new THREE.Vector3(0, 1.7, -10).applyMatrix4(character.matrixWorld);
             camera.position.lerp(firstPersonPosition, 0.1);
             camera.rotation.copy(character.rotation);
-          }   */
+          }   
 
-          if (isThirdPerson) {
+          /*if (isThirdPerson) {
             // Move the camera a bit above and backward for third-person view
             const thirdPersonPosition = new THREE.Vector3(0, 5, 10).applyMatrix4(character.matrixWorld); // Adjust Y for height, Z for backward
             camera.position.lerp(thirdPersonPosition, 0.1);
@@ -400,7 +400,7 @@
             const firstPersonPosition = new THREE.Vector3(0, 2.2, -12).applyMatrix4(character.matrixWorld); // Adjust Y for height, Z for backward
             camera.position.lerp(firstPersonPosition, 0.1);
             camera.rotation.copy(character.rotation);
-          }
+          }*/
           
 
           render();
